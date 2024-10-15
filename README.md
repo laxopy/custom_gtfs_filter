@@ -16,9 +16,15 @@ pip install -r requirements.txt
 
 ## Run the project
 
-In order to execute the project, use the following command:
+1. Save your Input GTFS in the folder GTFS-IN
+
+2. In order to execute the project, use the following command:
 
 ```bash
-python -m gtfs_filter.main path_to_your_gtfs.zip your_agency_id filtered_gtfs.zip
+python main.py
 ```
+
+3. The application will display all available agency_id in the input GTFS. Type your selection and click INTRO. 
+
+4. The filtered GTFS will be stored at GTFS-OUT. 
 

@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug Python Module",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "gtfs_filter.main",
+        "args": ["Archive.zip", "327", "filtered_gtfs.zip"],
+        "console": "integratedTerminal",
+        "justMyCode": true
+      }
+    ]
+  }

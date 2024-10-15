@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 temp_gtfs/
 filtered_gtfs/
+GTFS-IN/*
+!GTFS-IN/.gitkeep
+GTFS-OUT/*
+!GTFS-OUT/.gitkeep
