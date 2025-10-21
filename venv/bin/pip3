@@ -1,4 +1,4 @@
-#!/Users/jesuslaxlopez/Desktop/Projects/custom-gtfs-filter/venv/bin/python3
+#!/Users/jesuslax/Desktop/Projects/custom_gtfs_filter/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

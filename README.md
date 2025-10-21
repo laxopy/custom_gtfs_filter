@@ -1,30 +1,35 @@
 
 # GTFS Filter
 
-This project allows you to filter a GTFS by 'agency_id' and generate a new filtered GTFS containing only that specific agency_id data
+This project filters GTFS bundles to a subset defined either by `agency_id` or by an explicit list of `route_id`s. The output is a brand new GTFS zip that only contains the relevant rows, plus a console log describing which files were amended and why.
 
-## Install it
+## Installation
 
-1. Clone the repository
-2. Create a virtual environment and instal the requirements:
+1. Clone the repository.
+2. Create a virtual environment and install the requirements:
 
 ```bash
 python3 -m venv venv
-source venv/bin/activate  # En Windows usa `venv\Scripts\activate`
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 pip install -r requirements.txt
 ```
 
-## Run the project
+## Preparing input data
 
-1. Save your Input GTFS in the folder GTFS-IN
+- Place the GTFS bundle you want to filter inside `GTFS-IN/` (only the first `*.zip` file is processed).
+- When filtering by routes you can provide either:
+  - A simple CSV with one `route_id` per line (with or without a header).
+  - A valid GTFS `routes.txt` file containing the routes you want to keep.
 
-2. In order to execute the project, use the following command:
+## Running a filter
 
 ```bash
 python main.py
 ```
 
-3. The application will display all available agency_id in the input GTFS. Type your selection and click INTRO. 
+The CLI will prompt you to choose the filter type:
 
-4. The filtered GTFS will be stored at GTFS-OUT. 
+- **agency** – shows the contents of `agency.txt` so you can pick an `agency_id`. The filtered GTFS keeps every file needed for the selected agency.
+- **route** – previews the first rows of `routes.txt` and asks for the path to the CSV or `routes.txt` that lists the desired `route_id`s. The tool filters every dependent file (trips, stop_times, stops, shapes, calendars, etc.) to match the chosen routes.
 
+After filtering, a new zip is saved to `GTFS-OUT/` and the console lists each GTFS file that was modified or copied, together with the reason.
